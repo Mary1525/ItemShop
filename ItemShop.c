@@ -3,30 +3,44 @@
 #include <time.h>
 #include <string.h>
 
-struct Objet { //caracteristiques des objets de l'inventaire
-	char nom;
+struct Inventaire { //caracteristiques des objets de l'inventaire
+	int nombre;
 	int prix;
 };
 
-typedef struct Objet objet; //renomme la structure
+typedef struct Inventaire inventaire; //renomme la structure
 
-void achat (objet*typeObjet,int myMoney) {
+
+/*void achat (objet*typeObjet,int myMoney) {
 	myMoney -= (*typeObjet).prix;
 
-}
+}*/
 
 
 int main() {
 	
-	int myMoney = 100;
-	printf("tu as au total %d $\n", myMoney);
-
-	objet armeCorpsaCorps = { "couteau",5};
-	printf("voici le premier objet que tu achetes: le %c est a %d $\n", armeCorpsaCorps.nom, armeCorpsaCorps.prix);
-
-	achat (armeCorpsaCorps.prix);
-	printf("il te reste %d $\n",myMoney);
-
+//INVENTAIRE PERSO
+ inventaire bouclier={3};
+ inventaire armeAfeu={6};
+ inventaire armeCorpsAcorps={10};
+ 
+ inventaire tinvP[50] = {bouclier, armeAfeu, armeCorpsAcorps};
+ 
+ printf("Voici votre inventaire :\n%d boucliers \n", bouclier.nombre,bouclier.prix);
+ printf("%d armes a feu \n", armeAfeu.nombre, armeAfeu.prix);
+ printf("%d armes corps a corps \n", armeCorpsAcorps.nombre, armeCorpsAcorps.prix);
+ 
+ //INVENTAIRE VENDEUR
+ 
+ inventaire bouclier={3, 10};
+ inventaire armeAfeu={6, 15};
+ inventaire armeCorpsAcorps={10,20};
+ 
+ inventaire tinvP[50] = {bouclier, armeAfeu, armeCorpsAcorps};
+ 
+ printf("Bienvenu cher client ,veux-tu acheter quelque chose ? nous avons bon nombre d'objets ! :\n%d boucliers au prix de %d $\n", bouclier.nombre,bouclier.prix);
+ printf("%d armes a feu au prix de %d $\n", armeAfeu.nombre, armeAfeu.prix);
+ printf("%d armes corps a corps au prix de %d $\n", armeCorpsAcorps.nombre, armeCorpsAcorps.prix);
 
 	return 0;
 }
